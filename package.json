@@ -1,0 +1,43 @@
+{
+  "name": "fcc-presonal-library",
+  "author": "thetradecoder",
+  "version": "1.0.0",
+  "description": "fcc personal library",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "cors": "^2.8.5",
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "mongodb": "^3.5.7",
+    "chai-http": "^4.3.0",
+    "mocha": "^8.0.1",
+    "zombie": "^6.1.4",
+    "helmet": "^3.23.3",
+    "express-session": "^1.17.1",
+    "shortid": "^2.2.15",
+    "nocache": "^2.1.0",
+    "mongoose": "^5.9.13",
+    "sitemap": "^6.2.0",
+    "fs": "^0.0.2",
+    "zlib": "^1.0.5",
+    "path": "^0.12.7"
+  },
+  "engines": {
+    "node": "4.4.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "node",
+    "mongodb",
+    "express",
+    "thetradecoder"
+  ],
+  "license": "MIT"
+}

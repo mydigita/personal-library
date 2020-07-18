@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FCC - Personal Library - thetradecoder</title>
+    <meta name="description" content="FCC - information security and quality assurance project- by: thetradecoder"/>
+    <meta charset="utf-8" />
+    <meta name="author" content="theTradeCoder, Mamun Abdullah">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="alternate" title="Sitemap" hreflang="en" href="https://fcc-personal-library-thetradecoder.glitch.me" />
+    <link rel="alternate" title="Sitemap" hreflang="en" href="https://fcc-personal-library-thetradecoder.glitch.me/sitemap.xml" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/public/style.css" />
+  </head>
+  
+  
+  <body>
+    
+    <header class="">
+      <div id="menu" class="d-flex flex-wrap">
+        <span class = "flex-grow-1"></span>
+        <a  href="#about" class="btn btn-lg">About</a>
+        <a  href="#test-api" class="btn btn-lg">Test API</a>        
+        <a  href="#book-details" class="btn btn-lg">Books</a>    
+        <a  href="#delete-all" id = "delete-in-menu" class="btn btn-lg">Delete Books</a>
+      </div>
+    </header>    
+
+    <section class="container pt-3">
+      
+      <div id="app-title">
+        <h1 class="text-center">Personal Library</h1>
+      </div>
+      <hr/>
+      
+      
+      <div id="about" class="pt-3 pb-3">
+        <h2>About the App</h2>
+        <p class="">
+          -A Full Stack Javascript App<br/>
+          FCC - Information Security and Quality Assurance Project          
+        </p>
+      </div>
+      <hr/>
+      
+      
+      <div id="test-api" class="pt-3 pb-3">                
+        <h2 class="text-center">Test API Responses</h2>
+        <div class="pt-5">
+        <div class="p-5 rounded-lg shadow">
+            <form action="/api/books" method="post">
+              <h4>Test post to <code>/api/books</code></h4><br />
+              <label for="test-add-book">Add a new book:</label><br />
+              <input id="test-add-book" type="text" name="title" value="" class="form-control" 
+                     placeholder="Enter your book name" pattern="^[a-zA-Z1-9].*" required="required"/><br/>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="p-5 mt-5 rounded-lg shadow">
+            <form method="post" id="commentTest">
+              <h4>Test comment to <code>/api/books/:bookid</code></h4><br/>
+              <label for="idinputtest">Book Id to comment on:</label><br />
+              <input type="text" name="id" value="" id="idinputtest" class="form-control" placeholder="Enter book id" required="required"/><br />
+              <label for="testcomment">Comment: (max length 150 characters) </label><br />
+              <textarea id="testcomment" name="comment" rows="5"
+                        class="form-control" maxlength="150" placeholder="Type your comment here:" required="required"></textarea><br/>
+              <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        </div>        
+      </div>      
+      <hr/>
+      
+      
+      <div id="book-details" class="d-flex flex-wrap pt-3 pb-3">
+        <div id="display" class="">
+           <div id="add-book" class="pt-3 pb-3">
+             
+            <form id="newBookForm">
+              <label for="bookTitleToAdd" class="addnewbook">Add a new Book</label><br/>
+              <input type="text" id="bookTitleToAdd" name="title" class="form-control" 
+                     placeholder="New Book Title" pattern="^[a-zA-Z1-9].*" required="required"/><br/>
+              <button type="submit" value="Submit" id="newBook" class="btn btn-primary"> Submit New Book!</button>
+            </form>
+          </div>
+          <h3 class="pt-3 pb-1">Book List</h3>         
+        </div>
+
+        <div id="bookDetail" class="pl-5 pt-3 flex-grow-1">
+            <p id="detailTitle" class="text-center">
+              Select a book from the Book List to see book details and comments
+            </p>
+            <ul id="detailComments"></ul>
+        </div> 
+      </div>
+      <hr/>
+
+      
+      <div id="delete-all" class="pt-3 pb-5 d-flex flex-row justify-content-start">
+        <div class="">
+          <button data-toggle="collapse" data-target="#delete-warning" class="btn btn-danger flex-fill">Delete All Books?</button>
+        </div>
+        <div id = "delete-warning" class="collapse ml-1">
+          <button data-toggle="collapse" data-target="#deleteAllBooks" class="btn btn-warning flex-grow-1">Yes, I'm Sure</button>
+          <button id="deleteAllBooks" class="collapse btn btn-danger flex-grow-1">Ok, Delete All</button>
+        </div>
+        </div>      
+    </section>
+    <footer class="footer d-flex justify-content-center align-items-center">
+      <div><code class="dev">dev: thetradecoder</code></div>
+    </footer>
+
+    <script
+      src="https://code.jquery.com/jquery-2.2.1.min.js"
+      integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+      crossorigin="anonymous"
+    ></script>
+    <script src="/public/client.js"></script>
+    <script>
+      /*
+       *  For #sampleposting to update form action url to test inputs book id
+       */
+      $(function() {
+        $("#commentTest").submit(function() {
+          var id = $("#idinputtest").val();
+          $(this).attr("action", "/api/books/" + id);
+        });
+      });
+    </script>
+  </body>
+</html>
